@@ -1,14 +1,10 @@
-import random as rand
-slumptal=rand.randint(1,10)
-namn=(input("Hej vad heter du?"))
-print(f"Hej {namn} och välkommen till spelet!")
-
-#Spelet
-Gissning=int(input("Gissa på ett tal mellan 1-10"))
-while not Gissning==slumptal:
-    print(f"Tyvär du gissade fel, gissa igen")
-    Gissning=int(input("Gissa på ett tal mellan 1-10"))
+print("Vilken huvudstad har Sverige?")
+print("1. Oslo")
+print("2. Stockholm")
+print("3. Köpenhamn")
+svar=2
+gissning=int(input("Gissa på vilken av dessa svarsalternativ som är korrekt"))
+if svar==gissning:
+    print("Du svarade rätt!")
 else:
-    print("Grattis du gissade rätt")
-
-
+    print("Du fick fel svar")
