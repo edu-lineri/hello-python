@@ -1,26 +1,26 @@
-print("Vilken huvudstad har Norge?")
-print("1. Oslo")
-print("2. Stockholm")
-print("3. Köpenhamn")
-svar1=1
-svar2=2
-poäng=0
-gissning=int(input("Gissa på vilken av dessa svarsalternativ som är korrekt"))
-if svar1==gissning:
-    print("Du svarade rätt!")
-    poäng+=1
-else:
-    print("Du fick fel svar")
+import random as rand
 
-print("Vilket år började andra världskriget")
-print("1. 1914")
-print("2. 1939")
-print("3. 1945")
-gissning=int(input("Gissa på vilken av dessa svarsalternativ som är korrekt"))
-if svar2==gissning:
-    print("Du svarade rätt!")
-    poäng+=1
-else:
-    print("Du fick fel svar")
+hemligt_nummer=rand.randint(1000,9999)
+print(hemligt_nummer)
+hemligt_str=str(hemligt_nummer)
+antal=5
+print("Tjena, nu ska du spela Mastermind, detta spel går ut på att gissa nummer och efter en gissning kommer två symboler visas upp. \nFöljande symbol visas om du har rätt plats och rätt siffra 😇\n Det andra tecknet du kan få är 🫠, den visas om du har fått rätt nummer men på fel plats.")
+while antal>0:
+    try:
+        gissning=int(input("Gissa på ett tal"))
+    except ValueError or len(gissning)>4:
+        print("Fel! Du måste skriva en siffra, försök igen")
+    antal-=1
+    resultat=""
+    gissning_str=str(gissning)
 
-print(f"Du fick {poäng} av 2 rätt")
+    for i in range(4):
+        if gissning_str[i] == hemligt_str[i]:
+            resultat += "😇"
+        elif gissning_str[i] in hemligt_str:
+            resultat += "🫠"
+    print(resultat)
+    if gissning==hemligt_nummer:
+        print("Tack för att du spelat, du fick rätt svar")
+
+print(f"Du fick tyvär fel svar efter 5 omgångar och misslyckade att klara ut spelet, det rätta ordet var {hemligt_nummer}")
