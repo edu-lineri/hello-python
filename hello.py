@@ -3,14 +3,22 @@ import random as rand
 hemligt_nummer=rand.randint(1000,9999)
 print(hemligt_nummer)
 hemligt_str=str(hemligt_nummer)
-antal=5
+antal=10
 print("Tjena, nu ska du spela Mastermind, detta spel går ut på att gissa nummer och efter en gissning kommer två symboler visas upp. \nFöljande symbol visas om du har rätt plats och rätt siffra 😇\n Det andra tecknet du kan få är 🫠, den visas om du har fått rätt nummer men på fel plats.")
 while antal>0:
     try:
         gissning=int(input("Gissa på ett tal"))
-    except ValueError or len(gissning)>4:
+        gissning_str=str(gissning)
+        gissning_längd=len(gissning_str)
+        if gissning_längd!=4:
+            print("Du måste skriva 4 siffror, inte mer och inte mindre")
+            continue
+        
+    except ValueError:
         print("Fel! Du måste skriva en siffra, försök igen")
+        continue
     antal-=1
+    print(f"Du har {antal} gissningar kvar")
     resultat=""
     gissning_str=str(gissning)
 
@@ -23,4 +31,4 @@ while antal>0:
     if gissning==hemligt_nummer:
         print("Tack för att du spelat, du fick rätt svar")
 
-print(f"Du fick tyvär fel svar efter 5 omgångar och misslyckade att klara ut spelet, det rätta ordet var {hemligt_nummer}")
+print(f"Du fick tyvärr fel svar efter 10 omgångar och misslyckade att klara ut spelet, det rätta ordet var {hemligt_nummer}")
