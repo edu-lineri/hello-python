@@ -1,6 +1,6 @@
 import random as rand
 
-hemligt_nummer=rand.randint(1000,9999)
+hemligt_str = "".join(str(rand.randint(0, 9)) for _ in range(4))
 print(hemligt_nummer)
 hemligt_str=str(hemligt_nummer)
 antal=10
@@ -8,7 +8,6 @@ print("Tjena, nu ska du spela Mastermind, detta spel går ut på att gissa numme
 while antal>0:
     try:
         gissning=int(input("Gissa på ett tal"))
-        gissning_str=str(gissning)
         gissning_längd=len(gissning_str)
         if gissning_längd!=4:
             print("Du måste skriva 4 siffror, inte mer och inte mindre")
