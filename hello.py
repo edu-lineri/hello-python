@@ -24,7 +24,7 @@ while antal>0:
         elif gissning[i] in hemligt_str:
             resultat += "🫠"
     print(resultat)
-    if gissning==hemligt_nummer:
+    if gissning==hemligt_str:
         print("Tack för att du spelat, du fick rätt svar")
 
 print(f"Du fick tyvärr fel svar efter 10 omgångar och misslyckade att klara ut spelet, det rätta ordet var {hemligt_nummer}")
