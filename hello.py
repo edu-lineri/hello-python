@@ -1,14 +1,12 @@
 import random as rand
 
 hemligt_str = "".join(str(rand.randint(0, 9)) for _ in range(4))
-print(hemligt_nummer)
-hemligt_str=str(hemligt_nummer)
 antal=10
 print("Tjena, nu ska du spela Mastermind, detta spel går ut på att gissa nummer och efter en gissning kommer två symboler visas upp. \nFöljande symbol visas om du har rätt plats och rätt siffra 😇\n Det andra tecknet du kan få är 🫠, den visas om du har fått rätt nummer men på fel plats.")
 while antal>0:
     try:
-        gissning=int(input("Gissa på ett tal"))
-        gissning_längd=len(gissning_str)
+        gissning = input("Gissa på ett tal")
+        gissning_längd=len(gissning)
         if gissning_längd!=4:
             print("Du måste skriva 4 siffror, inte mer och inte mindre")
             continue
@@ -19,12 +17,11 @@ while antal>0:
     antal-=1
     print(f"Du har {antal} gissningar kvar")
     resultat=""
-    gissning_str=str(gissning)
 
     for i in range(4):
-        if gissning_str[i] == hemligt_str[i]:
+        if gissning[i] == hemligt_str[i]:
             resultat += "😇"
-        elif gissning_str[i] in hemligt_str:
+        elif gissning[i] in hemligt_str:
             resultat += "🫠"
     print(resultat)
     if gissning==hemligt_nummer:
